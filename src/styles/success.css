@@ -1,0 +1,83 @@
+.success-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 20px 50px;
+}
+
+.success-check {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: #3ea632;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.success-card {
+  width: 100%;
+  max-width: 920px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.success-header {
+  background: linear-gradient(90deg, #2d8f1f 0%, #49df26 100%);
+  color: white;
+  padding: 24px;
+}
+
+.success-meta {
+  margin: 18px;
+  background: #eaf1ff;
+  border-radius: 10px;
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.success-meta span,
+.success-footer {
+  color: #6b7280;
+}
+
+.success-summary {
+  padding: 0 18px 18px;
+}
+
+.taxable-income-bar {
+  margin: 0 18px 18px;
+  background: linear-gradient(90deg, #57cc5d 0%, #2b9e3a 100%);
+  color: #111;
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+.next-steps-card {
+  margin: 0 18px 18px;
+  border: 1px solid #cad4e2;
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.success-actions {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.success-footer {
+  text-align: center;
+  padding-bottom: 16px;
+}

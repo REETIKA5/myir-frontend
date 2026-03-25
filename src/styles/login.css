@@ -1,0 +1,123 @@
+/* Full page container */
+.login-container {
+  height: 100vh;
+  width: 100%;
+  background: url("https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+    no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.login-navbar {
+  height: 70px;
+  background: #163a5f;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Login Card */
+.login-card {
+  margin-left: auto;
+  margin-right: 60px;
+  margin-top: 60px;
+
+  width: 380px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 16px;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Text */
+.login-card h2 {
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.login-card label {
+  font-weight: 600;
+  margin-top: 10px;
+  display: block;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.login-card small {
+  color: #6b7280;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Forgot */
+.forgot {
+  text-align: right;
+  margin-top: 6px;
+}
+
+.forgot a {
+  font-size: 13px;
+  color: #2563eb;
+}
+
+/* Buttons */
+.login-btn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  border: none;
+  background: #163a5f;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.secondary-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  margin: 14px 0;
+  color: #6b7280;
+}
+
+/* Help text */
+.help-text {
+  font-size: 12px;
+  margin-top: 12px;
+  text-align: center;
+  color: #6b7280;
+}

@@ -1,0 +1,205 @@
+.tax-overview-page {
+  padding-top: 14px;
+}
+
+.tax-overview-page h1 {
+  margin-bottom: 6px;
+}
+
+.refund-hero {
+  background: #dfe9ff;
+  border-radius: 12px;
+  padding: 12px 18px;
+  min-height: 116px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  border-left: 3px solid #2d63b3;
+}
+
+.refund-hero__left h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2946af;
+}
+
+.refund-amount {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.refund-date {
+  margin: 8px 0 0;
+  color: #6e7788;
+  font-size: 12px;
+}
+
+.refund-hero__icon {
+  font-size: 48px;
+  color: #2946af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 10px;
+}
+
+.tax-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.overview-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 14px 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  min-height: 154px;
+}
+
+.overview-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.overview-card__header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #1b2230;
+}
+
+.overview-mini-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #e8eefc;
+  color: #5a74d1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.overview-mini-icon.green {
+  background: #dff5dd;
+  color: #4da958;
+}
+
+.overview-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #edf1f6;
+}
+
+.overview-row.no-border {
+  border-bottom: none;
+}
+
+.overview-row span {
+  color: #7b8494;
+  font-size: 14px;
+}
+
+.overview-row strong {
+  color: #111827;
+  font-size: 14px;
+}
+
+.about-refund-card {
+  margin-top: 10px;
+  background: #dfe9ff;
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.about-refund-card h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.about-refund-card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #4d596a;
+}
+
+.about-refund-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #e8eefc;
+  color: #3157d5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.next-action-card {
+  margin-top: 10px;
+  background: #ffffff;
+  border: 1.5px solid #8ab1f4;
+  border-radius: 10px;
+  padding: 14px 16px 18px;
+}
+
+.next-action-card h2 {
+  margin: 0 0 14px;
+  font-size: 16px;
+  color: #1e2430;
+}
+
+.next-action-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.next-btn {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.footer-help {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #566274;
+}
+
+@media (max-width: 900px) {
+  .tax-overview-grid,
+  .next-action-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .refund-hero {
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .refund-hero__icon {
+    padding-right: 0;
+  }
+}
