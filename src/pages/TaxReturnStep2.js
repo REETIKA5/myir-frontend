@@ -1,33 +1,58 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import {
+  FaArrowLeft,
+  FaCheckCircle,
+  FaExclamationCircle,
+  FaDollarSign,
+  FaPen,
+  FaEnvelope,
+  FaFileAlt,
+} from "react-icons/fa";
 import Navbar from "../components/Navbar";
-import "../styles/tax-return.css";
+import "../styles/tax-review.css";
 
 function TaxReturnStep2() {
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const data = location.state || {
-    annualIncome: 65000,
-    otherIncome: 5000,
-    workExpenses: 3500,
-    totalIncome: 70000,
-    taxableIncome: 66500,
-  };
-
+  const { state } = useLocation();
   const [confirmed, setConfirmed] = useState(false);
 
-  const handleSubmit = () => {
-    if (!confirmed) {
-      alert("Please confirm the information before submitting.");
-      return;
-    }
+  const data = useMemo(() => {
+    return {
+      annualIncome: state?.annualIncome || 0,
+      otherIncome: state?.otherIncome || 0,
+      workExpenses: state?.workExpenses || 0,
+      totalIncome:
+        state?.totalIncome ??
+        (Number(state?.annualIncome || 0) + Number(state?.otherIncome || 0)),
+      totalDeductions:
+        state?.totalDeductions ?? Number(state?.workExpenses || 0),
+      taxableIncome:
+        state?.taxableIncome ??
+        Math.max(
+          (Number(state?.annualIncome || 0) + Number(state?.otherIncome || 0)) -
+            Number(state?.workExpenses || 0),
+          0
+        ),
+    };
+  }, [state]);
 
-    navigate("/tax-success", {
+  const formatCurrency = (value) =>
+    Number(value || 0).toLocaleString("en-NZ", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+
+  const handleBackToEdit = () => {
+    navigate("/tax-return");
+  };
+
+  const handleSubmit = () => {
+    if (!confirmed) return;
+
+    navigate("//tax-success", {
       state: {
-        totalIncome: data.totalIncome,
-        workExpenses: data.workExpenses,
-        taxableIncome: data.taxableIncome,
+        ...data,
       },
     });
   };
@@ -36,87 +61,154 @@ function TaxReturnStep2() {
     <main className="page">
       <Navbar />
 
-      <section className="page-content">
-        <button className="text-link-btn" onClick={() => navigate("/tax-return")}>
-          ← Back to Edit
+      <section className="page-content tax-review-page">
+        <button
+          type="button"
+          className="text-link-btn back-btn"
+          onClick={handleBackToEdit}
+        >
+          <FaArrowLeft /> Back to Edit
         </button>
 
-        <h1>Review & Submit</h1>
-        <p className="muted-text">Please review your information carefully before submitting</p>
+        <h1>Review &amp; Submit</h1>
+        <p className="muted-text review-subtitle">
+          Please review your information carefully before submitting
+        </p>
 
-        <div className="progress-bar-wrap">
-          <div className="progress-step complete">1 Enter Details</div>
-          <div className="progress-step active">2 Review & Submit</div>
+        <div className="stepper custom-stepper review-stepper">
+          <div className="step step-inline completed">
+            <div className="circle success">
+              <FaCheckCircle />
+            </div>
+            <span>Enter Details</span>
+          </div>
+
+          <div className="progress-line green-line"></div>
+
+          <div className="step step-inline active">
+            <div className="circle">2</div>
+            <span>Review &amp; Submit</span>
+          </div>
+
+          <div className="progress-line blue-line"></div>
         </div>
 
         <section className="warning-banner">
-          <h3>Please review carefully</h3>
-          <p>Make sure all information is correct. You can go back to edit if needed.</p>
+          <div className="warning-icon">
+            <FaExclamationCircle />
+          </div>
+          <div>
+            <h3>Please review carefully</h3>
+            <p>
+              Make sure all information is correct. You can go back to edit if
+              needed.
+            </p>
+          </div>
         </section>
 
         <div className="review-layout">
-          <section className="card">
-            <div className="section-header-row">
-              <h2>Your Tax Information</h2>
-              <button className="small-btn" onClick={() => navigate("/tax-return")}>
+          <section className="review-card info-card">
+            <div className="card-top">
+              <div>
+                <h2>Your Tax Information</h2>
+              </div>
+
+              <button
+                type="button"
+                className="edit-btn"
+                onClick={handleBackToEdit}
+              >
+                <FaPen />
                 Edit Details
               </button>
             </div>
 
-            <div className="review-block">
-              <h3>Income</h3>
-              <div className="summary-row">
-                <span>Annual Income</span>
-                <strong>${Number(data.annualIncome).toLocaleString()}.00</strong>
+            <div className="info-section">
+              <div className="info-heading">
+                <div className="mini-icon blue">
+                  <FaDollarSign />
+                </div>
+                <h3>Income</h3>
               </div>
-              <div className="summary-row">
-                <span>Other Income</span>
-                <strong>${Number(data.otherIncome).toLocaleString()}.00</strong>
+
+              <div className="info-row">
+                <div>
+                  <span className="label">Annual Income</span>
+                  <strong>${formatCurrency(data.annualIncome)}</strong>
+                </div>
+                <span className="tag primary">Primary</span>
               </div>
-              <div className="summary-row total-row">
-                <span>Total Income</span>
-                <strong>${Number(data.totalIncome).toLocaleString()}.00</strong>
+
+              <div className="info-row">
+                <div>
+                  <span className="label">Other Income</span>
+                  <strong>${formatCurrency(data.otherIncome)}</strong>
+                </div>
+                <span className="tag secondary">Additional</span>
+              </div>
+
+              <div className="info-row total-row">
+                <div>
+                  <span className="label">Total Income</span>
+                </div>
+                <strong className="amount-positive">
+                  ${formatCurrency(data.totalIncome)}
+                </strong>
               </div>
             </div>
 
-            <div className="review-block">
-              <h3>Deductions</h3>
-              <div className="summary-row">
-                <span>Work-Related Expenses</span>
-                <strong>${Number(data.workExpenses).toLocaleString()}.00</strong>
+            <div className="info-section">
+              <div className="info-heading">
+                <div className="mini-icon green">↘</div>
+                <h3>Deductions</h3>
+              </div>
+
+              <div className="info-row">
+                <div>
+                  <span className="label">Work-Related Expenses</span>
+                  <strong>${formatCurrency(data.workExpenses)}</strong>
+                </div>
+                <span className="tag deductible">Deductible</span>
               </div>
             </div>
           </section>
 
-          <aside>
-            <section className="summary-box-dark">
-              <h3>Taxable Income</h3>
-              <div className="taxable-big">
-                ${Number(data.taxableIncome).toLocaleString()}.00
-              </div>
-              <div className="summary-row light-text">
-                <span>Total Income</span>
-                <strong>${Number(data.totalIncome).toLocaleString()}.00</strong>
-              </div>
-              <div className="summary-row light-text">
-                <span>Deductions</span>
-                <strong>-${Number(data.workExpenses).toLocaleString()}.00</strong>
+          <aside className="review-sidebar">
+            <section className="taxable-card">
+              <span className="taxable-label">Taxable Income</span>
+              <h2>${formatCurrency(data.taxableIncome)}</h2>
+
+              <div className="taxable-breakdown">
+                <div className="breakdown-row">
+                  <span>Total Income</span>
+                  <strong>${formatCurrency(data.totalIncome)}</strong>
+                </div>
+                <div className="breakdown-row">
+                  <span>Deductions</span>
+                  <strong>- ${formatCurrency(data.totalDeductions)}</strong>
+                </div>
               </div>
             </section>
 
-            <section className="card">
+            <section className="next-card">
               <h3>What happens next?</h3>
-              <ul className="plain-list">
-                <li>Review within 5–10 days</li>
-                <li>Email with assessment</li>
-                <li>Refund processed automatically</li>
+              <ul>
+                <li>
+                  <FaFileAlt /> Review within 5–10 days
+                </li>
+                <li>
+                  <FaEnvelope /> Email with assessment
+                </li>
+                <li>
+                  <FaCheckCircle /> Refund processed automatically
+                </li>
               </ul>
             </section>
           </aside>
         </div>
 
         <section className="confirm-card">
-          <label className="checkbox-row">
+          <label className="confirm-label">
             <input
               type="checkbox"
               checked={confirmed}
@@ -124,17 +216,27 @@ function TaxReturnStep2() {
             />
             <span>I confirm that the information provided is correct</span>
           </label>
-          <p className="muted-text">
-            By checking this, you declare all information is accurate. Providing false information may
-            result in penalties.
+          <p>
+            By checking this, you declare all information is accurate. Providing
+            false information may result in penalties.
           </p>
         </section>
 
-        <div className="action-row">
-          <button className="secondary-outline-btn" onClick={() => navigate("/tax-return")}>
+        <div className="review-actions">
+          <button
+            type="button"
+            className="secondary-btn"
+            onClick={handleBackToEdit}
+          >
             ← Back to Edit
           </button>
-          <button className="primary-btn" onClick={handleSubmit}>
+
+          <button
+            type="button"
+            className="primary-btn submit-btn"
+            onClick={handleSubmit}
+            disabled={!confirmed}
+          >
             Submit Return
           </button>
         </div>

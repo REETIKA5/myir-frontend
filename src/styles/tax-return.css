@@ -18,54 +18,63 @@
   font-size: 13px;
 }
 
-/* stepper */
-.stepper {
+.custom-stepper {
   display: flex;
   align-items: center;
-  margin: 12px 0 18px;
+  width: 100%;
+  margin: 24px 0 28px;
 }
 
-.step {
+.step-inline {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #7a8291;
-  font-size: 12px;
-  font-weight: 600;
-  min-width: 140px;
+  flex-shrink: 0;
 }
 
-.step.active {
-  color: #2448b8;
+.step-inline span {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #6b7280;
+}
+
+.step-inline.active span {
+  color: #2e49bb;
 }
 
 .circle {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background: #e3e7ef;
+  background: #e5e7eb;
+  color: #111827;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
 }
 
-.step.active .circle {
+.step-inline.active .circle {
   background: #2e49bb;
   color: #fff;
 }
 
-.line {
-  flex: 1;
+.progress-line {
   height: 4px;
-  background: #d9dee9;
   border-radius: 999px;
-  margin-right: 10px;
+  margin: 0 14px;
 }
 
-.line.active {
+.blue-line {
+  flex: 0.6;
   background: #2e49bb;
+}
+
+.grey-line {
+  flex: 0.6;
+  background: #dcdfe6;
 }
 
 /* banner */
@@ -303,18 +312,16 @@
   text-decoration: none;
 }
 
-/* button */
 .continue-wrap {
   display: flex;
   justify-content: center;
-  margin-top: 2px;
+  width: 100%;
+  margin-top: 28px;
 }
 
 .continue-btn {
-  min-width: 160px;
-  height: 40px;
-  border-radius: 9px;
-  font-size: 13px;
+  min-width: 240px;
+  width: auto;
 }
 
 @media (max-width: 900px) {
@@ -330,4 +337,7 @@
   .line {
     min-width: 40px;
   }
+  .tax-form-left {
+  width: 100%;
+}
 }

@@ -13,26 +13,66 @@ function TaxReturnStep1() {
     workExpenses: "",
   });
 
+  const [errors, setErrors] = useState({});
+
+  const formatCurrency = (value) => {
+    return Number(value || 0).toLocaleString("en-NZ", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  };
+
   const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+    const { name, value } = e.target;
+
+    if (value === "" || Number(value) >= 0) {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
   };
 
   const totalIncome =
     (Number(formData.annualIncome) || 0) + (Number(formData.otherIncome) || 0);
 
   const totalDeductions = Number(formData.workExpenses) || 0;
-  const taxableIncome = totalIncome - totalDeductions;
+  const taxableIncome = Math.max(totalIncome - totalDeductions, 0);
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.annualIncome || Number(formData.annualIncome) <= 0) {
+      newErrors.annualIncome = "Please enter your annual income.";
+    }
+
+    if (Number(formData.otherIncome) < 0) {
+      newErrors.otherIncome = "Other income cannot be negative.";
+    }
+
+    if (Number(formData.workExpenses) < 0) {
+      newErrors.workExpenses = "Work-related expenses cannot be negative.";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleContinue = () => {
+    if (!validateForm()) return;
+
     navigate("/tax-return/review", {
       state: {
         annualIncome: Number(formData.annualIncome) || 0,
         otherIncome: Number(formData.otherIncome) || 0,
         workExpenses: Number(formData.workExpenses) || 0,
         totalIncome,
+        totalDeductions,
         taxableIncome,
       },
     });
@@ -56,18 +96,20 @@ function TaxReturnStep1() {
           Complete the form below to submit your tax return for 2025/2026
         </p>
 
-        <div className="stepper">
-          <div className="step active">
+        <div className="stepper custom-stepper">
+          <div className="step step-inline active">
             <div className="circle">1</div>
             <span>Enter Details</span>
           </div>
 
-          <div className="line active"></div>
+          <div className="progress-line blue-line"></div>
 
-          <div className="step">
+          <div className="step step-inline">
             <div className="circle">2</div>
             <span>Review &amp; Submit</span>
           </div>
+
+          <div className="progress-line grey-line"></div>
         </div>
 
         <section className="tip-banner">
@@ -103,17 +145,30 @@ function TaxReturnStep1() {
                 <div className="field-helper">
                   Your total annual income before tax
                 </div>
-                <div className="money-input">
+                <div
+                  className={`money-input ${
+                    errors.annualIncome ? "input-error" : ""
+                  }`}
+                >
                   <span>$</span>
                   <input
                     id="annualIncome"
                     name="annualIncome"
                     type="number"
-                    placeholder="65,000.00"
+                    min="0"
+                    step="0.01"
+                    placeholder="65000.00"
                     value={formData.annualIncome}
                     onChange={handleChange}
+                    aria-invalid={!!errors.annualIncome}
+                    aria-describedby="annualIncomeError"
                   />
                 </div>
+                {errors.annualIncome && (
+                  <small id="annualIncomeError" className="error-text">
+                    {errors.annualIncome}
+                  </small>
+                )}
               </div>
 
               <div className="field-group">
@@ -121,17 +176,27 @@ function TaxReturnStep1() {
                 <div className="field-helper">
                   Additional income from investments or rentals
                 </div>
-                <div className="money-input">
+                <div
+                  className={`money-input ${
+                    errors.otherIncome ? "input-error" : ""
+                  }`}
+                >
                   <span>$</span>
                   <input
                     id="otherIncome"
                     name="otherIncome"
                     type="number"
+                    min="0"
+                    step="0.01"
                     placeholder="0.00"
                     value={formData.otherIncome}
                     onChange={handleChange}
+                    aria-invalid={!!errors.otherIncome}
                   />
                 </div>
+                {errors.otherIncome && (
+                  <small className="error-text">{errors.otherIncome}</small>
+                )}
               </div>
             </section>
 
@@ -149,29 +214,29 @@ function TaxReturnStep1() {
                 <div className="field-helper">
                   Expenses related to work or donations
                 </div>
-                <div className="money-input">
+                <div
+                  className={`money-input ${
+                    errors.workExpenses ? "input-error" : ""
+                  }`}
+                >
                   <span>$</span>
                   <input
                     id="workExpenses"
                     name="workExpenses"
                     type="number"
+                    min="0"
+                    step="0.01"
                     placeholder="0.00"
                     value={formData.workExpenses}
                     onChange={handleChange}
+                    aria-invalid={!!errors.workExpenses}
                   />
                 </div>
+                {errors.workExpenses && (
+                  <small className="error-text">{errors.workExpenses}</small>
+                )}
               </div>
             </section>
-
-            <div className="continue-wrap">
-              <button
-                type="button"
-                className="primary-btn continue-btn"
-                onClick={handleContinue}
-              >
-                Continue to Review →
-              </button>
-            </div>
           </div>
 
           <aside className="tax-form-right">
@@ -180,17 +245,17 @@ function TaxReturnStep1() {
 
               <div className="summary-box">
                 <span>Total Income</span>
-                <strong>${totalIncome.toLocaleString()}.00</strong>
+                <strong>${formatCurrency(totalIncome)}</strong>
               </div>
 
               <div className="summary-box">
                 <span>Total Deductions</span>
-                <strong>${totalDeductions.toLocaleString()}.00</strong>
+                <strong>${formatCurrency(totalDeductions)}</strong>
               </div>
 
               <div className="summary-box large">
                 <span>Taxable Income</span>
-                <strong>${taxableIncome.toLocaleString()}.00</strong>
+                <strong>${formatCurrency(taxableIncome)}</strong>
               </div>
 
               <div className="summary-note">ⓘ This is an estimate only</div>
@@ -198,10 +263,20 @@ function TaxReturnStep1() {
 
             <section className="help-card">
               <h3>Need Help?</h3>
-              <p>Click on for tips</p>
-              <a href="/">View Tax Guide →</a>
+              <p>Click the information icons for guidance and tips.</p>
+              <a href="/tax-guide">View Tax Guide →</a>
             </section>
           </aside>
+        </div>
+
+        <div className="continue-wrap">
+          <button
+            type="button"
+            className="primary-btn continue-btn"
+            onClick={handleContinue}
+          >
+            Continue to Review →
+          </button>
         </div>
       </section>
     </main>
