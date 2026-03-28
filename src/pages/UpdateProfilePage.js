@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import FormField from "../components/FormField";
+import { FaUser, FaUniversity, FaMapMarkerAlt } from "react-icons/fa";
 import "../styles/update-profile.css";
 
 function UpdateProfilePage() {
@@ -31,7 +32,7 @@ function UpdateProfilePage() {
     <main className="page">
       <Navbar />
 
-      <section className="page-content">
+      <section className="page-content update-profile-page">
         <button className="text-link-btn" onClick={() => navigate("/dashboard")}>
           ← Back to Dashboard
         </button>
@@ -43,8 +44,13 @@ function UpdateProfilePage() {
           </div>
 
           <form className="profile-form" onSubmit={handleSave}>
-            <section className="profile-section">
-              <h2>Personal Information</h2>
+            <section className="profile-section profile-section--personal">
+              <h2 className="profile-section-title">
+                <span className="profile-section-icon personal">
+                  <FaUser />
+                </span>
+                Personal Information
+              </h2>
 
               <FormField
                 id="fullName"
@@ -78,8 +84,13 @@ function UpdateProfilePage() {
               />
             </section>
 
-            <section className="profile-section">
-              <h2>Banking Details</h2>
+            <section className="profile-section profile-section--banking">
+              <h2 className="profile-section-title">
+                <span className="profile-section-icon banking">
+                  <FaUniversity />
+                </span>
+                Banking Details
+              </h2>
 
               <FormField
                 id="bankAccount"
@@ -92,8 +103,13 @@ function UpdateProfilePage() {
               />
             </section>
 
-            <section className="profile-section">
-              <h2>Address Information</h2>
+            <section className="profile-section profile-section--address">
+              <h2 className="profile-section-title">
+                <span className="profile-section-icon address">
+                  <FaMapMarkerAlt />
+                </span>
+                Address Information
+              </h2>
 
               <FormField
                 id="address"

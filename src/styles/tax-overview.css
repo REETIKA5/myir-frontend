@@ -1,90 +1,111 @@
+.page-content.tax-overview-page {
+  max-width: none;
+  margin: 0;
+  padding-left: 16px;
+  padding-right: 20px;
+}
+
 .tax-overview-page {
   padding-top: 14px;
+  font-size: 1rem;
 }
 
 .tax-overview-page h1 {
-  margin-bottom: 6px;
+  margin: 0 0 4px;
+  font-size: 2rem;
+  line-height: 1.15;
+}
+
+.tax-overview-page .muted-text {
+  margin: 0;
+  font-size: 0.95rem;
 }
 
 .refund-hero {
   background: #dfe9ff;
   border-radius: 12px;
-  padding: 12px 18px;
-  min-height: 116px;
+  padding: 5px 10px;
+  min-height: 68px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 12px;
+  margin-top: 8px;
   border-left: 3px solid #2d63b3;
 }
 
 .refund-hero__left h2 {
-  margin: 0 0 8px;
-  font-size: 18px;
+  margin: 0 0 3px;
+  font-size: 1.18rem;
   font-weight: 700;
   color: #2946af;
 }
 
 .refund-amount {
-  font-size: 20px;
+  font-size: 1.42rem;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 3px;
   color: #111827;
 }
 
 .refund-date {
-  margin: 8px 0 0;
+  margin: 4px 0 0;
   color: #6e7788;
-  font-size: 12px;
+  font-size: 0.8rem;
 }
 
 .refund-hero__icon {
-  font-size: 48px;
+  font-size: 1.9rem;
   color: #2946af;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 10px;
+  padding-right: 4px;
 }
 
 .tax-overview-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: 8px;
 }
 
 .overview-card {
   background: #fff;
   border-radius: 10px;
-  padding: 14px 14px 10px;
+  padding: 10px 11px 8px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-  min-height: 154px;
+  min-height: 120px;
 }
 
 .overview-card__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .overview-card__header h3 {
   margin: 0;
-  font-size: 18px;
+  font-size: 1.35rem;
   color: #1b2230;
 }
 
+.tax-overview-page .badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.72rem;
+}
+
 .overview-mini-icon {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 6px;
   background: #e8eefc;
   color: #5a74d1;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 11px;
 }
 
 .overview-mini-icon.green {
@@ -96,8 +117,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
-  padding: 12px 0;
+  gap: 10px;
+  padding: 9px 0;
   border-bottom: 1px solid #edf1f6;
 }
 
@@ -107,33 +128,33 @@
 
 .overview-row span {
   color: #7b8494;
-  font-size: 14px;
+  font-size: 0.95rem;
 }
 
 .overview-row strong {
   color: #111827;
-  font-size: 14px;
+  font-size: 0.95rem;
 }
 
 .about-refund-card {
-  margin-top: 10px;
+  margin-top: 8px;
   background: #dfe9ff;
   border-radius: 10px;
-  padding: 14px 16px;
+  padding: 11px 12px;
   display: flex;
-  gap: 12px;
+  gap: 10px;
   align-items: flex-start;
 }
 
 .about-refund-card h3 {
-  margin: 0 0 6px;
-  font-size: 16px;
+  margin: 0 0 5px;
+  font-size: 1.15rem;
 }
 
 .about-refund-card p {
   margin: 0;
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.4;
   color: #4d596a;
 }
 
@@ -152,43 +173,89 @@
 }
 
 .next-action-card {
-  margin-top: 10px;
+  margin-top: 8px;
   background: #ffffff;
   border: 1.5px solid #8ab1f4;
   border-radius: 10px;
-  padding: 14px 16px 18px;
+  padding: 10px 14px 12px;
 }
 
 .next-action-card h2 {
-  margin: 0 0 14px;
-  font-size: 16px;
+  margin: 0 0 10px;
+  font-size: 1.1rem;
   color: #1e2430;
 }
 
 .next-action-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  align-items: stretch;
+  gap: 14px;
 }
 
 .next-btn {
-  height: 44px;
+  width: 100%;
+  min-height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  font-size: 14px;
+  gap: 6px;
+  padding: 0 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.tax-overview-page .next-btn.primary-btn {
+  background: #243ea8;
+  color: #ffffff;
+  border: 1.5px solid #243ea8;
+}
+
+.tax-overview-page .next-btn.primary-btn:hover {
+  background: #1f3591;
+}
+
+.tax-overview-page .next-btn.secondary-outline-btn {
+  background: #ffffff;
+  color: #243ea8;
+  border: 1.5px solid #243ea8;
+}
+
+.tax-overview-page .next-btn.secondary-outline-btn:hover {
+  background: #f3f6ff;
 }
 
 .footer-help {
   text-align: center;
   margin-top: 8px;
-  font-size: 13px;
+  font-size: 0.85rem;
   color: #566274;
 }
 
 @media (max-width: 900px) {
+  .page-content.tax-overview-page {
+    padding-right: 12px;
+  }
+
+  .tax-overview-page h1 {
+    font-size: 1.7rem;
+  }
+
+  .refund-hero__left h2 {
+    font-size: 1.25rem;
+  }
+
+  .refund-amount {
+    font-size: 1.5rem;
+  }
+
+  .overview-card__header h3 {
+    font-size: 1.25rem;
+  }
+
   .tax-overview-grid,
   .next-action-buttons {
     grid-template-columns: 1fr;

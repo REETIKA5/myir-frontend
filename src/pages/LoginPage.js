@@ -7,57 +7,61 @@ function LoginPage() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    navigate("/dashboard"); // redirect after login
+    navigate("/dashboard");
   };
 
   return (
     <div className="login-container">
-      {/* Navbar */}
       <div className="login-navbar">
         <div className="logo">myIR</div>
       </div>
 
-      {/* Login Card */}
-      <div className="login-card">
-        <h2>Log in to myIR</h2>
-        <p className="subtitle">Access your tax information securely</p>
+      <div className="login-content">
+        <div className="login-card">
+          <h2>Log in to myIR</h2>
+          <p className="subtitle">Access your tax information securely</p>
 
-        <form onSubmit={handleLogin}>
-          <label>User ID</label>
-          <input
-            type="text"
-            placeholder="Enter your IRD number or username"
-            required
-          />
-          <small>Your IRD number is 8–9 digits</small>
+          <form onSubmit={handleLogin}>
+            <label htmlFor="userId">User ID</label>
+            <input
+              id="userId"
+              type="text"
+              placeholder="Enter your IRD number or username"
+              required
+            />
+            <small>Your IRD number is 8–9 digits</small>
 
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Enter your password"
-            required
-          />
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              placeholder="Enter your password"
+              required
+            />
 
-          <div className="forgot">
-            <a href="#">Forgot user ID or password?</a>
-          </div>
+            <div className="forgot">
+              <a href="#">Forgot user ID or password?</a>
+            </div>
 
-          <button className="login-btn">Log in</button>
+            <button type="submit" className="login-btn">
+              Log in
+            </button>
 
-          <div className="divider">OR</div>
+            <div className="divider">OR</div>
 
-          <button type="button" className="secondary-btn">
-            Log in with RealMe
-          </button>
+            <button type="button" className="secondary-btn">
+              Log in with RealMe
+            </button>
 
-          <button type="button" className="secondary-btn">
-            Log in with passkey
-          </button>
+            <button type="button" className="secondary-btn">
+              Log in with passkey
+            </button>
 
-          <p className="help-text">
-            Need help? Visit our <a href="#">support page</a> or call 0800 22 77 74
-          </p>
-        </form>
+            <p className="help-text">
+              Need help? Visit our <a href="#">support page</a> or call 0800 22 77 74
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   );

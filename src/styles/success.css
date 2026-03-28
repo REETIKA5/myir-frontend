@@ -2,46 +2,66 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 28px 20px 50px;
+  padding: 16px 16px 24px;
 }
 
 .success-check {
-  width: 78px;
-  height: 78px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: #3ea632;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 34px;
+  font-size: 22px;
   font-weight: 700;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .success-card {
   width: 100%;
-  max-width: 920px;
+  max-width: 560px;
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
 .success-header {
   background: linear-gradient(90deg, #2d8f1f 0%, #49df26 100%);
   color: white;
-  padding: 24px;
+  padding: 10px 12px;
+}
+
+.success-header h1 {
+  margin: 0 0 4px;
+  font-size: 1.08rem;
+}
+
+.success-header p {
+  margin: 0;
+  font-size: 0.74rem;
 }
 
 .success-meta {
-  margin: 18px;
+  margin: 7px;
   background: #eaf1ff;
-  border-radius: 10px;
-  padding: 18px;
+  border-radius: 8px;
+  padding: 7px;
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 12px;
+}
+
+.success-meta span {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 2px;
+}
+
+.success-meta strong {
+  font-size: 0.95rem;
 }
 
 .success-meta span,
@@ -50,34 +70,100 @@
 }
 
 .success-summary {
-  padding: 0 18px 18px;
+  padding: 0 7px 7px;
+}
+
+.success-summary h2,
+.next-steps-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.success-summary .summary-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  width: 100%;
+  padding: 8px 0;
+  column-gap: 12px;
+}
+
+.success-summary .summary-row > span,
+.success-summary .summary-row > strong {
+  font-size: 0.82rem;
+}
+
+.success-summary .summary-row > span {
+  min-width: 0;
+}
+
+.success-summary .summary-row > strong {
+  justify-self: end;
+  text-align: right !important;
+  white-space: nowrap;
+  margin: 0 !important;
 }
 
 .taxable-income-bar {
-  margin: 0 18px 18px;
+  margin: 0 7px 7px;
   background: linear-gradient(90deg, #57cc5d 0%, #2b9e3a 100%);
   color: #111;
-  border-radius: 10px;
-  padding: 16px 18px;
+  border-radius: 8px;
+  padding: 7px;
   display: flex;
   justify-content: space-between;
   font-weight: 700;
+  font-size: 0.85rem;
 }
 
 .next-steps-card {
-  margin: 0 18px 18px;
+  margin: 0 7px 7px;
   border: 1px solid #cad4e2;
-  border-radius: 10px;
-  padding: 18px;
+  border-radius: 8px;
+  padding: 7px;
+}
+
+.next-steps-card .plain-list {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.next-steps-card .plain-list li {
+  margin-bottom: 5px;
+  font-size: 0.8rem;
 }
 
 .success-actions {
   display: flex;
   justify-content: center;
-  padding-bottom: 20px;
+  padding-bottom: 7px;
+}
+
+.success-actions .primary-btn {
+  min-width: 180px;
+  height: 36px;
+  padding: 0 14px;
+  font-size: 0.9rem;
+  border-radius: 8px;
 }
 
 .success-footer {
   text-align: center;
-  padding-bottom: 16px;
+  padding: 0 12px 12px;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .success-page {
+    padding: 12px 10px 16px;
+  }
+
+  .success-card {
+    max-width: 100%;
+  }
+
+  .success-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
 }

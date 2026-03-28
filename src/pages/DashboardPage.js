@@ -8,14 +8,14 @@ import "../styles/dashboard.css";
 
 function DashboardPage() {
   return (
-    <main className="page">
+    <main className="dashboard-page">
       <Navbar />
 
-      <section className="page-content">
+      <section className="dashboard-content">
         <h1>Welcome Back, {userData.name}</h1>
-        <p className="muted-text">Here's your latest tax summary</p>
+        <p className="dashboard-subtitle">Here's your latest tax summary</p>
 
-        <div className="two-column-grid">
+        <div className="status-grid">
           <StatusCard
             title="Tax Status"
             amount={userData.refundAmount}
@@ -28,26 +28,31 @@ function DashboardPage() {
           />
         </div>
 
-        <section className="highlight-banner">
+        <section className="dashboard-banner">
           <h2>What would you like to do next?</h2>
           <p>
-            You have a refund available – check the details and see when you’ll receive your payment
+            You have a refund available – check the details and see when you’ll
+            receive your payment
           </p>
-          <Link to="/tax-overview" className="primary-btn inline-btn">
+          <Link to="/tax-overview" className="dashboard-primary-btn">
             View Refund Details →
           </Link>
         </section>
 
-        <section className="section-card">
+        <section className="dashboard-section quick-actions-section">
           <h2>Quick Actions</h2>
           <div className="quick-actions-grid">
             {quickActions.map((action) => (
-              <QuickActionCard key={action.title} title={action.title} path={action.path} />
+              <QuickActionCard
+                key={action.title}
+                title={action.title}
+                path={action.path}
+              />
             ))}
           </div>
         </section>
 
-        <section className="section-card">
+        <section className="dashboard-section notifications-section">
           <h2>Notifications</h2>
           <div className="notification-list">
             {notifications.map((item, index) => (

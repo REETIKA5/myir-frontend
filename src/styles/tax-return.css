@@ -1,28 +1,35 @@
-.tax-return-page {
-  padding-top: 10px;
+.page-content.tax-return-page {
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
-.back-btn {
-  font-size: 13px;
-  margin-bottom: 8px;
+.tax-return-page {
+  padding-top: 8px;
+}
+
+.tax-return-page .back-btn {
+  font-size: 12px;
+  margin-bottom: 4px;
+  margin-left: -28px;
+  position: relative;
 }
 
 .tax-return-page h1 {
-  margin: 0 0 6px;
-  font-size: 24px;
+  margin: 0;
+  font-size: 22px;
   color: #172033;
 }
 
 .tax-subtitle {
-  margin-bottom: 14px;
-  font-size: 13px;
+  margin: 2px 0 6px;
+  font-size: 12px;
 }
 
 .custom-stepper {
   display: flex;
   align-items: center;
   width: 100%;
-  margin: 24px 0 28px;
+  margin: 12px 0 10px;
 }
 
 .step-inline {
@@ -33,7 +40,7 @@
 }
 
 .step-inline span {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   white-space: nowrap;
   color: #6b7280;
@@ -44,15 +51,15 @@
 }
 
 .circle {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: #e5e7eb;
   color: #111827;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
 }
 
@@ -64,7 +71,7 @@
 .progress-line {
   height: 4px;
   border-radius: 999px;
-  margin: 0 14px;
+  margin: 0 10px;
 }
 
 .blue-line {
@@ -82,11 +89,11 @@
   background: #e8effb;
   border-left: 4px solid #3157d5;
   border-radius: 10px;
-  padding: 14px 16px;
+  padding: 12px 14px;
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 14px;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .tip-icon {
@@ -104,13 +111,13 @@
 
 .tip-banner h3 {
   margin: 0 0 4px;
-  font-size: 16px;
+  font-size: 15px;
   color: #1c2331;
 }
 
 .tip-banner p {
   margin: 0;
-  font-size: 13px;
+  font-size: 12px;
   color: #5f6978;
 }
 
@@ -118,14 +125,14 @@
 .tax-form-layout {
   display: grid;
   grid-template-columns: 1.7fr 0.95fr;
-  gap: 18px;
+  gap: 14px;
   align-items: start;
 }
 
 .tax-form-left {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .tax-form-right {
@@ -138,7 +145,7 @@
 .tax-card {
   background: #fff;
   border-radius: 12px;
-  padding: 14px 16px 16px;
+  padding: 12px 14px 14px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -146,7 +153,7 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .section-icon {
@@ -173,18 +180,18 @@
 
 .section-heading h2 {
   margin: 0;
-  font-size: 17px;
+  font-size: 16px;
   color: #1d2430;
 }
 
 .section-heading p {
   margin: 2px 0 0;
-  font-size: 12px;
+  font-size: 11px;
   color: #7a8291;
 }
 
 .field-group {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .field-group:last-child {
@@ -194,7 +201,7 @@
 .field-group label {
   display: block;
   margin-bottom: 4px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: #1f2937;
 }
@@ -213,16 +220,16 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  height: 46px;
+  height: 40px;
   border: 1px solid #ccd5e3;
   border-radius: 8px;
   background: #fff;
-  padding: 0 12px;
+  padding: 0 10px;
 }
 
 .money-input span {
   color: #111827;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -230,7 +237,7 @@
   flex: 1;
   border: none;
   outline: none;
-  font-size: 14px;
+  font-size: 13px;
   color: #1f2937;
   background: transparent;
 }
@@ -244,21 +251,21 @@
   background: linear-gradient(180deg, #2d42b3 0%, #24379d 100%);
   color: #fff;
   border-radius: 12px;
-  padding: 16px 14px 14px;
+  padding: 13px 12px 12px;
   box-shadow: 0 8px 18px rgba(36, 55, 157, 0.24);
   margin-bottom: 8px;
 }
 
 .summary-card h3 {
-  margin: 0 0 12px;
-  font-size: 16px;
+  margin: 0 0 10px;
+  font-size: 15px;
 }
 
 .summary-box {
   background: rgba(255, 255, 255, 0.12);
   border-radius: 8px;
-  padding: 10px 12px;
-  margin-bottom: 10px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -266,17 +273,17 @@
 }
 
 .summary-box span {
-  font-size: 12px;
+  font-size: 11px;
   color: rgba(255, 255, 255, 0.9);
 }
 
 .summary-box strong {
-  font-size: 14px;
+  font-size: 13px;
   color: #fff;
 }
 
 .summary-box.large strong {
-  font-size: 20px;
+  font-size: 17px;
 }
 
 .summary-note {
@@ -289,24 +296,24 @@
 .help-card {
   background: #fff;
   border-radius: 12px;
-  padding: 14px;
+  padding: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .help-card h3 {
   margin: 0 0 8px;
-  font-size: 15px;
+  font-size: 14px;
   color: #1f2937;
 }
 
 .help-card p {
   margin: 0 0 8px;
-  font-size: 12px;
+  font-size: 11px;
   color: #7b8494;
 }
 
 .help-card a {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   color: #2746b7;
   text-decoration: none;
@@ -316,12 +323,18 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 28px;
+  margin-top: 8px;
 }
 
 .continue-btn {
-  min-width: 240px;
+  min-width: 172px;
   width: auto;
+  height: 28px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
 }
 
 @media (max-width: 900px) {

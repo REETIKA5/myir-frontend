@@ -1,39 +1,45 @@
 .navbar {
-  height: 90px;
-  background: #143458;
+  height: 72px;              /* 👈 reduced from big */
+  background: #163a6b;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 28px;
+  justify-content: space-between;
+  padding: 0 18px;
 }
 
+/* logo */
 .navbar__logo {
-  width: 56px;
-  height: 56px;
+  width: 46px;               /* 👈 smaller */
+  height: 46px;
   border-radius: 50%;
-  background: #f0f3f8;
+  background: #f1f5f9;
+  color: #6b7280;
+  font-size: 12px;           /* 👈 smaller text */
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #687387;
-  font-weight: 700;
 }
 
+/* right side icons */
 .navbar__actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
 }
 
+/* icon buttons */
 .icon-btn {
-  width: 38px;
-  height: 38px;
+  width: 34px;               /* 👈 reduced */
+  height: 34px;
   border: none;
   border-radius: 50%;
-  background: #f0f3f8;
-  color: #51627c;
+  background: #f1f5f9;
+  color: #4b5563;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  font-size: 14px;           /* 👈 smaller icon */
+  padding: 0;
 }

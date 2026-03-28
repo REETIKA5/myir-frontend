@@ -1,6 +1,6 @@
 /* Full page container */
 .login-container {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background: url("https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
     no-repeat center center/cover;
@@ -10,67 +10,95 @@
 
 /* Navbar */
 .login-navbar {
-  height: 70px;
+  height: 80px;
   background: #163a5f;
   display: flex;
   align-items: center;
   padding: 0 24px;
 }
 
+/* Logo */
 .logo {
-  width: 50px;
-  height: 50px;
+  width: clamp(56px, 4.5vw, 70px);
+  height: clamp(56px, 4.5vw, 70px);
   border-radius: 50%;
   background: #e5e7eb;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
+
+  font-weight: 700;
+  font-size: clamp(16px, 1.4vw, 20px);
+  color: #163a5f;
+
+  flex-shrink: 0;
 }
 
-/* Login Card */
-.login-card {
-  margin-left: auto;
-  margin-right: 60px;
-  margin-top: 60px;
+/* Main content */
+.login-content {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 40px 5%;
+}
 
-  width: 380px;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 30px;
+/* Login Card (COMPACT VERSION) */
+.login-card {
+  width: 100%;
+  max-width: 320px;
+
+  background: rgba(255, 255, 255, 0.96);
+  padding: 18px;
   border-radius: 16px;
 
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Text */
+/* Heading */
 .login-card h2 {
-  margin-bottom: 8px;
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+  color: #111827;
 }
 
 .subtitle {
+  font-size: 0.9rem;
   color: #6b7280;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+}
+
+/* Labels */
+.login-card label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
 /* Inputs */
-.login-card label {
-  font-weight: 600;
-  margin-top: 10px;
-  display: block;
-}
-
 .login-card input {
   width: 100%;
-  padding: 10px;
-  margin-top: 6px;
-  border-radius: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
   border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  outline: none;
 }
 
+.login-card input:focus {
+  border-color: #3b82f6;
+}
+
+/* Small text */
 .login-card small {
+  font-size: 0.8rem;
   color: #6b7280;
-  display: block;
   margin-top: 4px;
+  display: block;
 }
 
 /* Forgot */
@@ -80,44 +108,93 @@
 }
 
 .forgot a {
-  font-size: 13px;
-  color: #2563eb;
+  font-size: 0.85rem;
+  color: #3b5bdb;
+  text-decoration: none;
 }
 
-/* Buttons */
+/* Primary button */
 .login-btn {
   width: 100%;
-  margin-top: 16px;
-  padding: 12px;
-  border: none;
-  background: #163a5f;
+  margin-top: 14px;
+  padding: 11px;
+  background: #1f4273;
   color: white;
-  border-radius: 8px;
-  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
 }
 
+/* Secondary buttons */
 .secondary-btn {
   width: 100%;
   margin-top: 10px;
-  padding: 10px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
+  padding: 11px;
   background: white;
+  color: #2f4fd1;
+  border: 2px solid #3b5bdb;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
 }
 
 /* Divider */
 .divider {
   text-align: center;
-  margin: 14px 0;
+  margin: 12px 0 4px;
   color: #6b7280;
+  font-size: 0.9rem;
 }
 
 /* Help text */
 .help-text {
-  font-size: 12px;
   margin-top: 12px;
   text-align: center;
   color: #6b7280;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.help-text a {
+  color: #3b5bdb;
+  text-decoration: none;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .login-content {
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .login-navbar {
+    height: 70px;
+    padding: 0 16px;
+  }
+
+  .logo {
+    width: 56px;
+    height: 56px;
+    font-size: 16px;
+  }
+
+  .login-content {
+    padding: 20px 16px;
+  }
+
+  .login-card {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .login-card h2 {
+    font-size: 1.5rem;
+  }
 }
